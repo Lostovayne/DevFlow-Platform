@@ -1,3 +1,5 @@
+import Navbar from "@/components/navegation/navbar";
+import ThemeProvider from "@/context/theme";
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk as SpaceGrotesk } from "next/font/google";
 import "./globals.css";
@@ -27,9 +29,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>{children}</body>
+    <html lang="en" className="" suppressHydrationWarning>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
+        <ThemeProvider
+          attribute={"class"}
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
-

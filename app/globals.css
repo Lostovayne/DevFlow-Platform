@@ -64,6 +64,394 @@
   }
 }
 
-body {
-  @apply font-inter;
+@utility background-light850_dark100 {
+  @apply bg-light-850 dark:bg-dark-100;
+}
+
+@utility background-light900_dark200 {
+  @apply bg-light-900 dark:bg-dark-200;
+}
+
+@utility background-light900_dark300 {
+  @apply bg-light-900 dark:bg-dark-300;
+}
+
+@utility background-light800_darkgradient {
+  @apply bg-light-800 dark:dark-gradient;
+}
+
+@utility background-light800_dark400 {
+  @apply bg-light-800! dark:bg-dark-400!;
+  @apply bg-light-800 dark:bg-dark-400;
+}
+
+@utility background-light700_dark400 {
+  @apply bg-light-700 dark:bg-dark-400;
+}
+
+@utility background-light700_dark300 {
+  @apply bg-light-700 dark:bg-dark-300;
+}
+
+@utility background-light800_dark300 {
+  @apply bg-light-800! dark:bg-dark-300!;
+}
+
+@utility background-light800_dark200 {
+  @apply bg-light-800 dark:bg-dark-200;
+}
+
+@utility background-dark400_light900 {
+  @apply dark:bg-dark-400! bg-light-900!;
+}
+
+@utility text-dark100_light900 {
+  @apply text-dark-100! dark:text-light-900!;
+}
+
+@utility text-dark200_light900 {
+  @apply text-dark-200 dark:text-light-900;
+}
+
+@utility text-dark200_light800 {
+  @apply text-dark-200! dark:text-light-800!;
+}
+
+@utility text-dark300_light700 {
+  @apply text-dark-300 dark:text-light-700;
+}
+
+@utility text-dark400_light700 {
+  @apply text-dark-400 dark:text-light-700;
+}
+
+@utility text-dark500_light700 {
+  @apply text-dark-500! dark:text-light-700!;
+}
+
+@utility text-dark500_light500 {
+  @apply text-dark-500 dark:text-light-500;
+}
+
+@utility text-dark500_light400 {
+  @apply text-dark-500 dark:text-light-400;
+}
+
+@utility text-dark300_light900 {
+  @apply text-dark-300! dark:text-light-900!;
+}
+
+@utility text-dark400_light800 {
+  @apply text-dark-400 dark:text-light-800;
+}
+
+@utility text-light400_light500 {
+  @apply text-light-400! dark:text-light-500!;
+  @apply text-light-400! dark:text-light-500!;
+}
+
+@utility text-dark400_light500 {
+  @apply text-dark-400 dark:text-light-500;
+}
+
+@utility text-dark400_light900 {
+  @apply text-dark-400! dark:text-light-900!;
+}
+
+@utility light-border {
+  @apply border-light-800 dark:border-dark-300;
+}
+
+@utility light-border-2 {
+  @apply border-light-700! dark:border-dark-400!;
+}
+
+@utility h1-bold {
+  @apply text-[30px] font-bold leading-[42px] tracking-tighter;
+}
+
+@utility h2-bold {
+  @apply text-[24px] font-bold leading-[31.2px];
+}
+
+@utility h2-semibold {
+  @apply text-[24px] font-semibold leading-[31.2px];
+}
+
+@utility h3-bold {
+  @apply text-[20px] font-bold leading-[26px];
+}
+
+@utility h3-semibold {
+  @apply text-[20px] font-semibold leading-[24.8px];
+}
+
+@utility base-medium {
+  @apply text-[18px] font-medium leading-[25.2px];
+}
+
+@utility base-semibold {
+  @apply text-[18px] font-semibold leading-[25.2px];
+}
+
+@utility base-bold {
+  @apply text-[18px] font-bold leading-[140%];
+}
+
+@utility paragraph-regular {
+  @apply text-[16px] font-normal leading-[22.4px];
+}
+
+@utility paragraph-medium {
+  @apply text-[16px] font-medium leading-[22.4px];
+}
+
+@utility paragraph-semibold {
+  @apply text-[16px] font-semibold leading-[20.8px];
+}
+
+@utility body-regular {
+  @apply text-[14px] font-normal leading-[19.6px];
+}
+
+@utility body-medium {
+  @apply text-[14px] font-medium leading-[18.2px];
+}
+
+@utility body-semibold {
+  @apply text-[14px] font-semibold leading-[18.2px];
+}
+
+@utility body-bold {
+  @apply text-[14px] font-bold leading-[18.2px];
+}
+
+@utility small-regular {
+  @apply text-[12px] font-normal leading-[15.6px];
+}
+
+@utility small-medium {
+  @apply text-[12px] font-medium leading-[15.6px];
+}
+
+@utility small-semibold {
+  @apply text-[12px] font-semibold leading-[15.6px];
+}
+
+@utility subtle-medium {
+  @apply text-[10px]! font-medium! leading-[13px]!;
+}
+
+@utility subtle-regular {
+  @apply text-[10px] font-normal leading-[13px];
+}
+
+@utility placeholder {
+  @apply placeholder:text-light-400 dark:placeholder:text-light-500;
+}
+
+@utility invert-colors {
+  @apply invert dark:invert-0;
+}
+
+@utility shadow-light100_dark100 {
+  @apply shadow-light-100 dark:shadow-dark-100;
+}
+
+@utility shadow-light100_darknone {
+  @apply shadow-light-100 dark:shadow-none;
+}
+
+@utility primary-gradient {
+  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+}
+
+@utility dark-gradient {
+  background: linear-gradient(
+    232deg,
+    rgba(23, 28, 35, 0.41) 0%,
+    rgba(19, 22, 28, 0.7) 100%
+  );
+  background: linear-gradient(
+    232deg,
+    rgba(23, 28, 35, 0.41) 0%,
+    rgba(19, 22, 28, 0.7) 100%
+  );
+}
+
+@utility light-gradient {
+  background: linear-gradient(
+    132deg,
+    rgba(247, 249, 255, 0.5) 0%,
+    rgba(229, 237, 255, 0.25) 100%
+  );
+}
+
+@utility primary-text-gradient {
+  background: linear-gradient(129deg, #ff7000 0%, #e2995f 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@utility flex-center {
+  @apply flex justify-center items-center;
+}
+
+@utility flex-between {
+  @apply flex justify-between items-center;
+}
+
+@utility flex-start {
+  @apply flex justify-start items-center;
+}
+
+@utility card-wrapper {
+  @apply bg-light-900 dark:dark-gradient shadow-light-100 dark:shadow-dark-100;
+}
+
+@utility btn {
+  @apply bg-light-800! dark:bg-dark-300!;
+}
+
+@utility btn-secondary {
+  @apply bg-light-800! dark:bg-dark-400!;
+}
+
+@utility btn-tertiary {
+  @apply bg-light-700! dark:bg-dark-300!;
+}
+
+@utility no-focus {
+  @apply focus-visible:ring-0! focus-visible:ring-transparent! focus-visible:ring-offset-0!;
+}
+
+@utility markdown {
+  @apply !max-w-full prose prose-p:my-2 prose-ol:my-0 prose-ul:my-0 dark:prose-p:text-light-700 dark:prose-ol:text-light-700 dark:prose-ul:text-light-500 dark:prose-strong:text-white dark:prose-headings:text-white prose-headings:text-dark-400 prose-h1:text-dark-300 prose-h2:text-dark-300 prose-p:text-dark-500 prose-ul:text-dark-500 prose-ol:text-dark-500;
+}
+
+@utility markdown-editor {
+  @apply prose !max-w-full prose-p:m-0 dark:prose-headings:text-white prose-headings:text-dark-400 prose-p:text-dark-500 dark:prose-p:text-light-700 prose-ul:text-dark-500 dark:prose-ul:text-light-700 prose-ol:text-dark-500 dark:prose-ol:text-light-700 dark:prose-strong:text-white prose-blockquote:text-dark-500 dark:prose-blockquote:text-light-700;
+}
+
+@utility tab {
+  @apply min-h-full! dark:bg-dark-400! bg-light-800! text-light-500! dark:data-[state=active]:bg-dark-300! data-[state=active]:bg-primary-100! data-[state=active]:text-primary-500!;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+  border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 50px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.active-theme {
+  filter: invert(53%) sepia(98%) saturate(3332%) hue-rotate(0deg) brightness(104%)
+    contrast(106%) !important;
+}
+
+.hash-span {
+  margin-top: -140px;
+  padding-bottom: 140px;
+  display: block;
+}
+
+.mdxeditor-toolbar {
+  background: #ffffff !important;
+}
+
+.dark .mdxeditor-toolbar {
+  background: #151821 !important;
+}
+
+.dark .mdxeditor-toolbar button svg {
+  color: #858ead !important;
+}
+
+.dark .mdxeditor-toolbar button:hover svg {
+  color: #000 !important;
+}
+
+.dark .mdxeditor-toolbar [role="separator"] {
+  border-color: #555 !important;
+}
+
+.markdown a {
+  color: #1da1f2;
+}
+
+.markdown a,
+code {
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+
+  -ms-word-break: break-all;
+  /* This is the dangerous one in WebKit, as it breaks things wherever */
+  word-break: break-all;
+  /* Instead use this non-standard one: */
+  word-break: break-word;
+
+  /* Adds a hyphen where the word breaks, if supported (No Blink) */
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+
+  padding: 2px;
+  color: #ff7000 !important;
+}
+
+.markdown pre {
+  display: grid;
+  width: 100%;
+}
+
+.markdown pre code {
+  width: 100%;
+  display: block;
+  overflow-x: auto;
+
+  color: inherit !important;
+}
+
+[data-lexical-editor="true"] {
+  height: 350px !important;
+  overflow-y: auto !important;
+}
+
+/* NESTED CODE BLOCKS: Only apply grid to visible code blocks */
+[data-bright-mode="dark"]:not(html.light [data-bright-mode="dark"]),
+[data-bright-mode="light"]:not(:not(html.light [data-bright-mode="light"])) {
+  display: grid !important;
+  width: 100% !important;
 }
