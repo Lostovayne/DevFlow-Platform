@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-primary-100: #fff1e6;
+  --color-primary-500: #ff7000;
+
+  --color-dark-100: #000000;
+  --color-dark-200: #0f1117;
+  --color-dark-300: #151821;
+  --color-dark-400: #212734;
+  --color-dark-500: #101012;
+
+  --color-light-400: #858ead;
+  --color-light-500: #7b8ec8;
+  --color-light-700: #dce3f1;
+  --color-light-800: #f4f6f8;
+  --color-light-850: #fdfdfd;
+  --color-light-900: #ffffff;
+
+  --color-link-100: #1da1f2;
+
+  --radius-2: 8px;
+  --radius-1_5: 6px;
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --shadow-light-100:
+    0px 12px 20px 0px rgba(184, 184, 184, 0.03),
+    0px 6px 12px 0px rgba(184, 184, 184, 0.02), 0px 2px 4px 0px rgba(184, 184, 184, 0.03);
+  --shadow-light-200: 10px 10px 20px 0px rgba(218, 213, 213, 0.1);
+  --shadow-light-300: -10px 10px 20px 0px rgba(218, 213, 213, 0.1);
+  --shadow-dark-100: 0px 2px 10px 0px rgba(46, 52, 56, 0.1);
+  --shadow-dark-200: 2px 0px 20px 0px rgba(39, 36, 36, 0.04);
+
+  --background-image-auth-dark: url("/images/auth-dark.png");
+  --background-image-auth-light: url("/images/auth-light.png");
+
+  --breakpoint-xs: 420px;
+
+  --font-inter: var(--font-inter);
+  --font-space-grotesk: var(--font-space-grotesk);
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+body {
+  @apply font-inter;
+}
