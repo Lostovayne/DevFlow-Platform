@@ -1,4 +1,3 @@
-import Navbar from "@/components/navegation/navbar";
 import ThemeProvider from "@/context/theme";
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk as SpaceGrotesk } from "next/font/google";
@@ -37,7 +36,6 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
           {children}
         </ThemeProvider>
       </body>
