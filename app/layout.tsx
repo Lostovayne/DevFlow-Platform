@@ -1,3 +1,4 @@
+import { Toaster } from "@/components/ui/sonner";
 import ThemeProvider from "@/context/theme";
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk as SpaceGrotesk } from "next/font/google";
@@ -30,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="" suppressHydrationWarning>
       <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
+        <Toaster position="top-right" />
         <ThemeProvider
           attribute={"class"}
           defaultTheme="system"
