@@ -2,22 +2,21 @@
 
 import Image from "next/image";
 
+import { authenticate, Provider } from "@/app/actions/auth";
 import { toast } from "sonner";
 import { Button } from "../ui/button";
-
 const SocialAuthForm = () => {
   const buttonClassName =
     "background-dark400_light900 body-medium text-dark200_light800 min-h-12 flex-1 rounded-2 px-4 py-3.5 ";
 
-  const handleSignIn = async (provider: "github" | "google") => {
+  const handleSignIn = async (provider: Provider) => {
     try {
-      throw new Error("Sign-in is not implemented"); // Simulate a failed sign-in attempt
+      await authenticate(provider);
     } catch (error) {
-      console.error(error);
       toast.warning("Sign-in Failed", {
         description:
           error instanceof Error ? error.message : "An error occurred while signing in.",
-        descriptionClassName: "text-sm",
+        descriptionClassName: "text-sm text-dark400_light900",
         duration: 5000,
       });
     }

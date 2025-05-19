@@ -1,7 +1,10 @@
+import { auth } from "@/auth";
 import { Toaster } from "@/components/ui/sonner";
 import ThemeProvider from "@/context/theme";
 import type { Metadata } from "next";
+import { SessionProvider } from "next-auth/react";
 import { Inter, Space_Grotesk as SpaceGrotesk } from "next/font/google";
+import { ReactNode } from "react";
 import "./globals.css";
 
 const inter = Inter({
@@ -23,24 +26,28 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
+  const session = await auth();
+
   return (
-    <html lang="en" className="" suppressHydrationWarning>
-      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
-        <Toaster position="top-right" />
-        <ThemeProvider
-          attribute={"class"}
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
-      </body>
+    <html lang="en" suppressHydrationWarning>
+      <SessionProvider session={session}>
+        <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
+          <Toaster position="top-right" />
+          <ThemeProvider
+            attribute={"class"}
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
+      </SessionProvider>
     </html>
   );
 }
