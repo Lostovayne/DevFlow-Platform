@@ -3,14 +3,13 @@ import {
   Sheet,
   SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import ROUTES from "@/constants/routes";
 import Image from "next/image";
 import Link from "next/link";
+import NavLinks from "./NavLinks";
 
 const MobileNavigation = () => {
   return (
@@ -36,7 +35,7 @@ const MobileNavigation = () => {
         <div className="no-scrollbar flex h-[calc(100vh-80px)] flex-col justify-between overflow-y-auto">
           <SheetClose asChild>
             <section className="flex h-full flex-col gap-6 pt-16">
-              <p>Nav Links</p>
+              <NavLinks isMovileNav />
             </section>
           </SheetClose>
 
