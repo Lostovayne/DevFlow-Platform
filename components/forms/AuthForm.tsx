@@ -71,11 +71,6 @@ const AuthForm = <T extends FieldValues>({
                     className="paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 no-focus min-h-12 rounded-1.5 border"
                   />
                 </FormControl>
-                <FormDescription>
-                  {field.name === "email"
-                    ? "Enter your email address"
-                    : field.name.charAt(0).toUpperCase() + field.name.slice(1)}
-                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
