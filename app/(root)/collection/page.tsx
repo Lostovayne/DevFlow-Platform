@@ -1,4 +1,4 @@
-const Page = () => {
+const CollectionPage = () => {
   return <div>Page</div>;
 };
-export default Page;
+export default CollectionPage;
