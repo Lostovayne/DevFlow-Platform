@@ -1,4 +1,4 @@
-const AskAquestion = () => {
+const AskAQuestion = () => {
   return <div>AskAquestion</div>;
 };
-export default AskAquestion;
+export default AskAQuestion;
