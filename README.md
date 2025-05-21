@@ -1,112 +1,133 @@
 # Ultimate Next.js Project
 
-Este proyecto es una plantilla robusta para construir aplicaciones web modernas utilizando Next.js y un conjunto de tecnologías y herramientas clave.
+This project is a robust template for building modern web applications using Next.js and a set of key technologies and tools.
 
-## Tecnologías Principales
+## Demo
 
-- **Next.js**: Framework de React para renderizado del lado del servidor y generación de sitios estáticos.
-- **TypeScript**: Lenguaje tipado para un desarrollo más seguro y escalable.
-- **Tailwind CSS**: Framework CSS utilitario para un diseño rápido y responsivo.
-- **ESLint**: Herramienta de linting para mantener la calidad del código.
-- **Prettier**: Formateador de código para asegurar un estilo consistente.
-- **pnpm**: Gestor de paquetes rápido y eficiente.
+<img src="./public/img.png" alt="Devflows" width="100%" />
 
-## Dependencias Clave
+## Key Features
 
-El proyecto incluye una variedad de librerías para funcionalidades comunes:
+- **Modern Stack:** Built with Next.js, TypeScript, and Tailwind CSS.
+- **Developer Experience:** Pre-configured with ESLint and Prettier for code quality and consistency.
+- **Essential Libraries:** Includes commonly used libraries for UI components, authentication, form handling, and more.
+- **Efficient Package Management:** Uses pnpm for fast and efficient dependency management.
 
-- `@radix-ui/*`: Componentes UI accesibles.
-- `cmdk`: Componente de paleta de comandos.
-- `date-fns`: Utilidades para manejo de fechas.
-- `embla-carousel-react`: Carrusel táctil y responsivo.
-- `lucide-react`: Iconos.
-- `next-auth`: Autenticación para Next.js.
-- `next-themes`: Manejo de temas (claro/oscuro).
-- `react-hook-form`: Manejo de formularios con hooks.
-- `sonner`: Componentes de Toast.
-- `zod`: Validación de esquemas.
+## Main Technologies
 
-## Configuración de Desarrollo
+- **Next.js**: React framework for server-side rendering and static site generation.
+- **TypeScript**: Typed language for safer and more scalable development.
+- **Tailwind CSS**: Utility-first CSS framework for rapid and responsive design.
+- **ESLint**: Linting tool to maintain code quality.
+- **Prettier**: Code formatter to ensure consistent style.
+- **pnpm**: Fast and efficient package manager.
 
-- **ESLint**: Configurado con `eslint-config-standard`, `eslint-plugin-n`, `eslint-plugin-promise`, `eslint-plugin-tailwindcss`, y `eslint-config-prettier` para asegurar un código limpio y con buen estilo.
-- **PostCSS**: Configurado con `@tailwindcss/postcss`.
-- **TypeScript**: Configuración estándar para un proyecto Next.js.
+## Key Dependencies
 
-### Instalación de ESLint y Reglas de Estilo
+The project includes a variety of libraries for common functionalities:
 
-Para configurar ESLint y las reglas de estilo recomendadas, sigue estos pasos:
+- `@radix-ui/*`: Accessible UI components.
+- `cmdk`: Command palette component.
+- `date-fns`: Date handling utilities.
+- `embla-carousel-react`: Touch-friendly and responsive carousel.
+- `lucide-react`: Icons.
+- `next-auth`: Authentication for Next.js.
+- `next-themes`: Theme handling (light/dark).
+- `react-hook-form`: Form handling with hooks.
+- `sonner`: Toast components.
+- `zod`: Schema validation.
+  _(Note: Please ensure this list is up-to-date with your project's current dependencies)_
 
-1.  Instala `eslint-config-standard`:
+## Development Setup
 
-    ```bash
-    pnpm i eslint-config-standard -D
-    ```
+- **ESLint**: Configured with `eslint-config-standard`, `eslint-plugin-n`, `eslint-plugin-promise`, `eslint-plugin-tailwindcss`, and `eslint-config-prettier` to ensure clean and well-styled code.
+- **PostCSS**: Configured with `@tailwindcss/postcss`.
+- **TypeScript**: Standard configuration for a Next.js project.
 
-2.  Instala los plugins para Node y Promises:
+### Installing ESLint and Style Rules
 
-    ```bash
-    pnpm i eslint-plugin-n eslint-plugin-promise -D
-    ```
+To configure ESLint and the recommended style rules, follow these steps:
 
-3.  Instala el plugin para Tailwind CSS:
+1. Install `eslint-config-standard`:
 
-    ```bash
-    pnpm i eslint-plugin-tailwindcss -D
-    ```
+   ```bash
+   pnpm i eslint-config-standard -D
+   ```
 
-4.  Instala la configuración para integrar Prettier con ESLint:
+2. Install Node and Promises plugins:
 
-    ```bash
-    pnpm i eslint-config-prettier -D
-    ```
+   ```bash
+   pnpm i eslint-plugin-n eslint-plugin-promise -D
+   ```
 
-5.  Instala Prettier:
+3. Install the Tailwind CSS plugin:
 
-    ```bash
-    pnpm i prettier -D
-    ```
+   ```bash
+   pnpm i eslint-plugin-tailwindcss -D
+   ```
 
-**Nota:** Asegúrate de agregar `-D` a los comandos de instalación para guardar estas dependencias como dependencias de desarrollo.
+4. Install the configuration to integrate Prettier with ESLint:
 
-## Cómo Empezar
+   ```bash
+   pnpm i eslint-config-prettier -D
+   ```
 
-1.  Clona el repositorio:
+5. Install Prettier:
 
-    ```bash
-    git clone <URL_DEL_REPOSITORIO>
-    cd ultimate-nextjs
-    ```
+   ```bash
+   pnpm i prettier -D
+   ```
 
-2.  Instala las dependencias usando pnpm:
+**Note:** Make sure to add `-D` to the installation commands to save these dependencies as development dependencies.
 
-    ```bash
-    pnpm install
-    ```
+## How to Get Started
 
-3.  Ejecuta el servidor de desarrollo:
+1. Clone the repository:
 
-    ```bash
-    pnpm dev
-    ```
+   ```bash
+   git clone <REPOSITORY_URL>
+   cd ultimate-nextjs
+   ```
 
-    El proyecto estará disponible en `http://localhost:3000`.
+2. Install dependencies using pnpm:
 
-## Scripts Disponibles
+   ```bash
+   pnpm install
+   ```
 
-- `pnpm dev`: Inicia el servidor de desarrollo.
-- `pnpm build`: Compila el proyecto para producción.
-- `pnpm start`: Inicia el servidor de producción.
-- `pnpm lint`: Ejecuta ESLint para revisar el código.
-- `pnpm format`: Ejecuta Prettier para formatear el código.
+3. Run the development server:
 
-## Estructura del Proyecto
+   ```bash
+   pnpm dev
+   ```
 
-(Aquí podrías añadir una breve descripción de la estructura de carpetas principal si lo deseas)
+   The project will be available at `http://localhost:3000`.
 
-## Contribuir
+## Available Scripts
 
-(Aquí podrías añadir información sobre cómo contribuir si es un proyecto de código abierto)
+- `pnpm dev`: Starts the development server.
+- `pnpm build`: Builds the project for production.
+- `pnpm start`: Starts the production server.
+- `pnpm lint`: Runs ESLint to check the code.
+- `pnpm format`: Runs Prettier to format the code.
 
-## Licencia
+## Project Structure
 
-(Aquí podrías añadir información sobre la licencia del proyecto)
+```
+ultimate-nextjs/
+├── public/             # Static assets (images, fonts, etc.)
+├── src/                # Source code
+│   ├── app/            # Next.js App Router
+│   ├── components/     # Reusable React components
+│   ├── lib/            # Utility functions and configurations
+│   └── styles/         # Global styles
+├── .eslintrc.json      # ESLint configuration
+├── .prettierrc.json    # Prettier configuration
+├── next.config.js      # Next.js configuration
+├── package.json        # Project dependencies and scripts
+├── pnpm-lock.yaml      # pnpm lock file
+├── postcss.config.js   # PostCSS configuration
+├── README.md           # Project README
+├── tailwind.config.ts  # Tailwind CSS configuration
+└── tsconfig.json       # TypeScript configuration
+```
