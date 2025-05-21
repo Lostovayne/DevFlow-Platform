@@ -1,4 +1,10 @@
-export const sidebarLinks = [
+export interface SidebarLink {
+  imgURL: string;
+  route: string;
+  label: string;
+}
+
+export const sidebarLinks: SidebarLink[] = [
   {
     imgURL: "/icons/home.svg",
     route: "/",

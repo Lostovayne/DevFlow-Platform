@@ -20,13 +20,13 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
           item.route === pathname;
 
         if (item.route === "/profile") {
-          if (userId) item.route = `/profile/${userId}`;
-          else return null;
+          if (!userId) return null; //
+          item.route = `/profile/${userId}`;
         }
         const LinkComponent = (
           <Link
             href={item.route}
-            key={item.label}
+            prefetch
             className={cn(
               isActive
                 ? "primary-gradient rounded-lg text-light-900"
@@ -52,9 +52,7 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
           </Link>
         );
         return isMobileNav ? (
-          <SheetClose asChild key={item.label}>
-            {LinkComponent}
-          </SheetClose>
+          <SheetClose asChild>{LinkComponent}</SheetClose>
         ) : (
           <Fragment key={item.route}>{LinkComponent}</Fragment>
         );

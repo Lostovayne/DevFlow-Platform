@@ -4,7 +4,7 @@ import ROUTES from "@/constants/routes";
 
 const HomePage = async () => {
   const session = await auth();
-  console.log(session);
+  // console.log(session);
   return (
     <div className="">
       <h1 className="text-red-200">LAD COBRA! SALVAME HUEVITO REY</h1>
