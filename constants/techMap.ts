@@ -1,10 +1,7 @@
-export const TECHMAP: { [key: string]: string } = {
+export const TECHMAP: Record<string, string> = {
   javascript: "devicon-javascript-plain",
   js: "devicon-javascript-plain",
   typescript: "devicon-typescript-plain",
-  ts: "devicon-typescript-plain",
-  react: "devicon-react-original",
-  nextjs: "devicon-nextjs-plain",
   node: "devicon-nodejs-plain",
   html: "devicon-html5-plain",
   css: "devicon-css3-plain",
@@ -35,4 +32,6 @@ export const TECHMAP: { [key: string]: string } = {
   go: "devicon-go-original",
   bun: "devicon-bun-plain",
   reactrouter: "devicon-reactrouter-plain",
+  nextjs: "devicon-nextjs-plain",
+  react: "devicon-react-original",
 };

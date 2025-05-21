@@ -1,6 +1,6 @@
-import LeftSidebar from "@/components/navegation/LeftSidebar";
-import Navbar from "@/components/navegation/navbar";
-import RighSidebar from "@/components/navegation/RighSidebar";
+import LeftSidebar from "@/components/navigation/LeftSidebar";
+import Navbar from "@/components/navigation/navbar";
+import RighSidebar from "@/components/navigation/RighSidebar";
 import { JSX } from "react";
 
 const RootLayout = ({ children }: { children: JSX.Element }) => {
