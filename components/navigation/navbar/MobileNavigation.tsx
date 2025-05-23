@@ -1,11 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import ROUTES from "@/constants/routes";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,10 +14,10 @@ const MobileNavigation = () => {
           width={36}
           height={36}
           alt="Menu Icon"
-          className="invert-colors sm:hidden"
+          className="invert-colors sm:hidden cursor-pointer"
         />
       </SheetTrigger>
-      <SheetContent side="left" className="background-light900_dark200 border-none p-4">
+      <SheetContent side="left" className="background-light900_dark200 border-none p-6">
         <SheetTitle className="sr-only">Navigation</SheetTitle>
         <Link href={"/"} className="flex items-center gap-1">
           <Image src={"/images/site-logo.svg"} width={23} height={23} alt="Logo" />
@@ -34,7 +28,7 @@ const MobileNavigation = () => {
 
         <div className="no-scrollbar flex h-[calc(100vh-80px)] flex-col justify-between overflow-y-auto">
           <SheetClose asChild>
-            <section className="flex h-full flex-col gap-6 pt-16">
+            <section className="flex h-full flex-col gap-6 pt-10">
               <NavLinks isMobileNav />
             </section>
           </SheetClose>
@@ -42,7 +36,7 @@ const MobileNavigation = () => {
           <div className="flex flex-col gap-3">
             <SheetClose asChild>
               <Link href={ROUTES.SIGN_IN}>
-                <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none">
+                <Button className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none focus:border-0">
                   <span className="primary-text-gradient">Log In </span>
                 </Button>
               </Link>
