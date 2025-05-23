@@ -7,7 +7,7 @@ import NavLinks from "./NavLinks";
 
 const MobileNavigation = () => {
   return (
-    <Sheet>
+    <Sheet defaultOpen={false} modal>
       <SheetTrigger asChild>
         <Image
           src={"/icons/hamburger.svg"}
@@ -17,7 +17,10 @@ const MobileNavigation = () => {
           className="invert-colors sm:hidden cursor-pointer"
         />
       </SheetTrigger>
-      <SheetContent side="left" className="background-light900_dark200 border-none p-6">
+      <SheetContent
+        side="left"
+        className="background-light900_dark200 border-none p-6 no-scrollbar"
+      >
         <SheetTitle className="sr-only">Navigation</SheetTitle>
         <Link href={"/"} className="flex items-center gap-1">
           <Image src={"/images/site-logo.svg"} width={23} height={23} alt="Logo" />
