@@ -35,14 +35,7 @@ const eslintConfig = [
       "import/order": [
         "error",
         {
-          groups: [
-            "builtin",
-            "external",
-            "internal",
-            ["sibling", "parent"],
-            "index",
-            "object",
-          ],
+          groups: ["builtin", "external", "internal", ["sibling", "parent"], "index", "object"],
           "newlines-between": "always",
           pathGroups: [
             {
