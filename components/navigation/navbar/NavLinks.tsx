@@ -16,8 +16,7 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
     <>
       {sidebarLinks.map((item) => {
         const isActive =
-          (pathname.includes(item.route) && item.route.length > 1) ||
-          item.route === pathname;
+          (pathname.includes(item.route) && item.route.length > 1) || item.route === pathname;
 
         if (item.route === "/profile") {
           if (!userId) return null; //
@@ -28,9 +27,7 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
             href={item.route}
             prefetch
             className={cn(
-              isActive
-                ? "primary-gradient rounded-lg text-light-900"
-                : "text-dark300_light900",
+              isActive ? "primary-gradient rounded-lg text-light-900" : "text-dark300_light900",
               "flex items-center justify-start gap-4 bg-transparent p-4 "
             )}
           >
@@ -52,7 +49,9 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav?: boolean }) => {
           </Link>
         );
         return isMobileNav ? (
-          <SheetClose asChild>{LinkComponent}</SheetClose>
+          <SheetClose key={item.route} asChild>
+            {LinkComponent}
+          </SheetClose>
         ) : (
           <Fragment key={item.route}>{LinkComponent}</Fragment>
         );

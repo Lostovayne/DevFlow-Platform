@@ -23,24 +23,27 @@ const LocalSearch = ({ route, imgSrc, placeholder, otherClasses }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
 
-  // TODO: add debounce to this effect
   useEffect(() => {
-    if (searchQuery) {
-      const newUrl = formUrlQuery({
-        params: searchParams.toString(),
-        key: "query",
-        value: searchQuery,
-      });
-      router.push(newUrl, { scroll: false });
-    } else {
-      if (pathname === route) {
-        const newUrl = removeKeysFromUrlQuery({
+    const delayDebounceFn = setTimeout(() => {
+      if (searchQuery) {
+        const newUrl = formUrlQuery({
           params: searchParams.toString(),
-          keysToRemove: ["query"],
+          key: "query",
+          value: searchQuery,
         });
         router.push(newUrl, { scroll: false });
+      } else {
+        if (pathname === route) {
+          const newUrl = removeKeysFromUrlQuery({
+            params: searchParams.toString(),
+            keysToRemove: ["query"],
+          });
+          router.push(newUrl, { scroll: false });
+        }
       }
-    }
+    }, 600);
+
+    return () => clearTimeout(delayDebounceFn);
   }, [searchQuery]);
 
   return (
