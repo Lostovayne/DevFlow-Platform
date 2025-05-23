@@ -46,7 +46,7 @@ export default async function RootLayout({
         <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
           <Toaster position="top-right" />
           <ThemeProvider
-            attribute={"class"}
+            attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange

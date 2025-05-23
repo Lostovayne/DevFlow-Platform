@@ -43,6 +43,13 @@ interface SearchParams {
 }
 
 const HomePage = async ({ searchParams }: SearchParams) => {
+  const { query = "" } = await searchParams;
+  // search Database for question
+
+  const filterQuestions = questions.filter((question) =>
+    question.title.toLowerCase().includes(query?.toLowerCase())
+  );
+
   return (
     <>
       <section className="flex w-full flex-col-reverse sm:flex-row justify-between gap-4 sm:items-center">
@@ -60,9 +67,9 @@ const HomePage = async ({ searchParams }: SearchParams) => {
           otherClasses="flex-1"
         />
       </section>
-      HomeFilters
+      {/* HomeFilters */}
       <div className="mt-10 flex w-full flex-col gap-6">
-        {questions.map((question) => (
+        {filterQuestions.map((question) => (
           <h1 key={question.id_}>{question.title}</h1>
         ))}
       </div>
