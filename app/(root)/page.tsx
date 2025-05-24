@@ -1,3 +1,4 @@
+import QuestionCard from "@/components/cards/QuestionCard";
 import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
@@ -7,7 +8,7 @@ import Link from "next/link";
 // questions
 const questions = [
   {
-    id_: "1",
+    _id: "1",
     title: "How to use NextJS?",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Sed porttitor lectus nibh.",
@@ -23,7 +24,7 @@ const questions = [
   },
 
   {
-    id_: "2",
+    _id: "2",
     title: "How to use JavaScript ?",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Sed porttitor lectus nibh.",
@@ -71,7 +72,7 @@ const HomePage = async ({ searchParams }: SearchParams) => {
       <HomeFilter />
       <div className="mt-10 flex w-full flex-col gap-6">
         {filterQuestions.map((question) => (
-          <h1 key={question.id_}>{question.title}</h1>
+          <QuestionCard key={question._id} question={question} />
         ))}
       </div>
     </>
