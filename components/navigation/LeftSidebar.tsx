@@ -6,16 +6,16 @@ import NavLinks from "./navbar/NavLinks";
 
 const LeftSidebar = () => {
   const sidebarClassName =
-    "custom-scrollbar background-light900_dark200 light-border sticky left-0 top-0 h-screen flex flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px]";
+    "custom-scrollbar background-light900_dark200 light-border sticky left-0 top-0 h-screen flex flex-col justify-between overflow-y-auto border-r p-6 pt-36 shadow-light-300 dark:shadow-none max-sm:hidden lg:w-[266px] no-scrollbar";
   return (
     <section className={sidebarClassName}>
-      <div className="flex flex-1 flex-col gap-6">
+      <div className="flex flex-1 flex-col gap-6 pb-4 no-scrollbar">
         <NavLinks />
       </div>
 
       <div className="flex flex-col gap-3">
         <Button
-          className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none"
+          className="small-medium btn-secondary min-h-[41px] w-full rounded-lg px-4 py-3 shadow-none focus-visible:ring-0 focus-visible:border-none ring-0"
           asChild
         >
           <Link href={ROUTES.SIGN_IN}>

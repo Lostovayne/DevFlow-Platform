@@ -1,3 +1,5 @@
+import QuestionCard from "@/components/cards/QuestionCard";
+import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constants/routes";
@@ -6,7 +8,7 @@ import Link from "next/link";
 // questions
 const questions = [
   {
-    id_: "1",
+    _id: "1",
     title: "How to use NextJS?",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Sed porttitor lectus nibh.",
@@ -14,7 +16,11 @@ const questions = [
       { _id: "1", name: "NextJS" },
       { _id: "2", name: "ReactJS" },
     ],
-    author: { _id: "1", name: "John Doe" },
+    author: {
+      _id: "1",
+      name: "John Doe",
+      image: "https://www.thefamouspeople.com/profiles/images/sasha-grey-7.jpg",
+    },
     upvotes: 10,
     answers: 40,
     views: 1220,
@@ -22,7 +28,7 @@ const questions = [
   },
 
   {
-    id_: "2",
+    _id: "2",
     title: "How to use JavaScript ?",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Sed porttitor lectus nibh.",
@@ -30,7 +36,11 @@ const questions = [
       { _id: "1", name: "JavaScript" },
       { _id: "2", name: "ReactJS" },
     ],
-    author: { _id: "1", name: "John Doe" },
+    author: {
+      _id: "1",
+      name: "John Doe",
+      image: "https://www.thefamouspeople.com/profiles/images/sasha-grey-7.jpg",
+    },
     upvotes: 10,
     answers: 20,
     views: 1320,
@@ -43,9 +53,9 @@ interface SearchParams {
 }
 
 const HomePage = async ({ searchParams }: SearchParams) => {
-  const { query = "" } = await searchParams;
+  const { query = "", filter = "" } = await searchParams;
   // search Database for question
-
+  // TODO: Agregar filtrado por los botones de filtrado
   const filterQuestions = questions.filter((question) =>
     question.title.toLowerCase().includes(query?.toLowerCase())
   );
@@ -67,10 +77,10 @@ const HomePage = async ({ searchParams }: SearchParams) => {
           otherClasses="flex-1"
         />
       </section>
-      {/* HomeFilters */}
+      <HomeFilter />
       <div className="mt-10 flex w-full flex-col gap-6">
         {filterQuestions.map((question) => (
-          <h1 key={question.id_}>{question.title}</h1>
+          <QuestionCard key={question._id} question={question} />
         ))}
       </div>
     </>
