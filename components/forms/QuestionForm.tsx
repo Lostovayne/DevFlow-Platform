@@ -2,12 +2,21 @@
 
 import { AskQuestionSchema } from "@/lib/validations";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { MDXEditorMethods } from "@mdxeditor/editor";
+import dynamic from "next/dynamic";
+import { useRef } from "react";
 import { useForm } from "react-hook-form";
 import { Button } from "../ui/button";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from "../ui/form";
 import { Input } from "../ui/input";
 
+const Editor = dynamic(() => import("../editor"), {
+  ssr: false,
+});
+
 const QuestionForm = () => {
+  const editorRef = useRef<MDXEditorMethods | null>(null);
+
   const form = useForm({
     resolver: zodResolver(AskQuestionSchema),
     defaultValues: {
@@ -55,7 +64,9 @@ const QuestionForm = () => {
               <FormLabel className="paragraph-semibold text-dark400_light800">
                 Detailed explanation of your problem <span className="text-primary-500">*</span>
               </FormLabel>
-              <FormControl></FormControl>
+              <FormControl>
+                <Editor editorRef={editorRef} value={field.value} fieldChange={field.onChange} />
+              </FormControl>
               <FormDescription className="body-regular text-light-500 -mt-1">
                 Introduce the problem and expand on what you&apos;ve put in the title.
               </FormDescription>
