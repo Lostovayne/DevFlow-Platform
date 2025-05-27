@@ -5,7 +5,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { MDXEditorMethods } from "@mdxeditor/editor";
 import dynamic from "next/dynamic";
 import { useRef } from "react";
-import { useForm } from "react-hook-form";
+import { ControllerRenderProps, useForm } from "react-hook-form";
+import z from "zod";
 import { Button } from "../ui/button";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from "../ui/form";
 import { Input } from "../ui/input";
@@ -17,7 +18,7 @@ const Editor = dynamic(() => import("../editor"), {
 const QuestionForm = () => {
   const editorRef = useRef<MDXEditorMethods | null>(null);
 
-  const form = useForm({
+  const form = useForm<z.infer<typeof AskQuestionSchema>>({
     resolver: zodResolver(AskQuestionSchema),
     defaultValues: {
       title: "",
@@ -28,6 +29,29 @@ const QuestionForm = () => {
 
   // TODO: Implement this function to handle the question creation logic
   const handleCreateQuestion = () => {};
+
+  const handleInputKeyDown = (
+    e: React.KeyboardEvent<HTMLInputElement>,
+    field: ControllerRenderProps<z.infer<typeof AskQuestionSchema>, "tags">
+  ) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const tagInput = e.currentTarget.value.trim();
+      if (tagInput && tagInput.length < 15 && !field.value.includes(tagInput)) {
+        form.setValue("tags", [...field.value, tagInput]);
+        e.currentTarget.value = "";
+        form.clearErrors("tags");
+      } else if (tagInput.length > 15) {
+        form.setError("tags", {
+          message: "Tag length should be less than 15 characters",
+        });
+      } else if (field.value.includes(tagInput)) {
+        form.setError("tags", {
+          message: "Tag already exists",
+        });
+      }
+    }
+  };
 
   return (
     <Form {...form}>
@@ -86,9 +110,14 @@ const QuestionForm = () => {
                 <div>
                   <Input
                     className="paragraph-regular background-light700_dark300 light-border-2 text-dark300_light700 no-focus min-h-[56px]  border"
-                    {...field}
                     placeholder="Add tags..."
+                    onKeyDown={(e) => handleInputKeyDown(e, field)}
                   />
+                  {field.value.length > 0 && (
+                    <div className="flex-start mt-2.5 flex-wrap gap-2.5">
+                      {form.getValues("tags")}
+                    </div>
+                  )}
                 </div>
               </FormControl>
               <FormDescription className="body-regular text-light-500 -mt-1">

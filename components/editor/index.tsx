@@ -29,9 +29,9 @@ import {
 import { basicDark } from "cm6-theme-basic-dark";
 import type { ForwardedRef } from "react";
 
+import "@mdxeditor/editor/style.css";
 import { useTheme } from "next-themes";
 import "./dark-editor.css";
-import "@mdxeditor/editor/style.css";
 
 interface Props {
   editorRef: ForwardedRef<MDXEditorMethods> | null;
