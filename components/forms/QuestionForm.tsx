@@ -8,7 +8,15 @@ import { FC, useRef } from "react";
 import { ControllerRenderProps, useForm } from "react-hook-form";
 import z from "zod";
 import { Button } from "../ui/button";
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from "../ui/form";
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../ui/form";
 import { Input } from "../ui/input";
 import TagCard from "../cards/TagCard";
 
@@ -29,12 +37,23 @@ const QuestionForm = () => {
   });
 
   // TODO: Implement this function to handle the question creation logic
-  const handleCreateQuestion = () => {};
+  const handleCreateQuestion = (data: z.infer<typeof AskQuestionSchema>) => {
+    console.log(data);
+  };
 
   const handleTagRemove = (
     tag: string,
     field: ControllerRenderProps<z.infer<typeof AskQuestionSchema>, "tags">
-  ) => {};
+  ) => {
+    const filteredTags = field.value.filter((tagItem) => tagItem !== tag);
+    form.setValue("tags", filteredTags);
+
+    if (filteredTags.length === 0) {
+      form.setError("tags", {
+        message: "At least one tag is required",
+      });
+    }
+  };
 
   const handleInputKeyDown = (
     e: React.KeyboardEvent<HTMLInputElement>,
@@ -82,6 +101,7 @@ const QuestionForm = () => {
               <FormDescription className="body-regular text-light-500 -mt-1">
                 Be specific and imagine you&apos;re asking a question to another person.
               </FormDescription>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -100,6 +120,7 @@ const QuestionForm = () => {
               <FormDescription className="body-regular text-light-500 -mt-1">
                 Introduce the problem and expand on what you&apos;ve put in the title.
               </FormDescription>
+              <FormMessage />
             </FormItem>
           )}
         />
@@ -140,6 +161,7 @@ const QuestionForm = () => {
                 Add up 3 tags to describe what your question is about. You need to press enter to
                 add a tag.
               </FormDescription>
+              <FormMessage />
             </FormItem>
           )}
         />
