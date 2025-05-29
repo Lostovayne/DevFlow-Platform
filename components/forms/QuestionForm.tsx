@@ -4,12 +4,13 @@ import { AskQuestionSchema } from "@/lib/validations";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { MDXEditorMethods } from "@mdxeditor/editor";
 import dynamic from "next/dynamic";
-import { useRef } from "react";
+import { FC, useRef } from "react";
 import { ControllerRenderProps, useForm } from "react-hook-form";
 import z from "zod";
 import { Button } from "../ui/button";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel } from "../ui/form";
 import { Input } from "../ui/input";
+import TagCard from "../cards/TagCard";
 
 const Editor = dynamic(() => import("../editor"), {
   ssr: false,
@@ -29,6 +30,11 @@ const QuestionForm = () => {
 
   // TODO: Implement this function to handle the question creation logic
   const handleCreateQuestion = () => {};
+
+  const handleTagRemove = (
+    tag: string,
+    field: ControllerRenderProps<z.infer<typeof AskQuestionSchema>, "tags">
+  ) => {};
 
   const handleInputKeyDown = (
     e: React.KeyboardEvent<HTMLInputElement>,
@@ -115,7 +121,17 @@ const QuestionForm = () => {
                   />
                   {field.value.length > 0 && (
                     <div className="flex-start mt-2.5 flex-wrap gap-2.5">
-                      {form.getValues("tags")}
+                      {field.value.map((tag, index) => (
+                        <TagCard
+                          key={index}
+                          name={tag}
+                          _id={tag}
+                          compact
+                          remove
+                          isButton
+                          handleRemove={() => handleTagRemove(tag, field)}
+                        />
+                      ))}
                     </div>
                   )}
                 </div>

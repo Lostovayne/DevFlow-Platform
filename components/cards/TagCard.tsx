@@ -3,15 +3,27 @@ import { getDeviconClassName } from "@/lib/utils";
 import Link from "next/link";
 import { Badge } from "../ui/badge";
 
-interface Props {
+interface TagCardProps {
   _id: string;
   name: string;
   questions?: number;
   showCount?: boolean;
   compact?: boolean;
+  remove?: boolean;
+  isButton?: boolean;
+  handleRemove?: () => void;
 }
 
-const TagCard = ({ _id, name, questions, showCount, compact }: Props) => {
+const TagCard = ({
+  _id,
+  name,
+  questions,
+  showCount,
+  compact,
+  remove,
+  isButton,
+  handleRemove,
+}: TagCardProps) => {
   const iconClass = getDeviconClassName(name);
 
   return (
