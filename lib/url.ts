@@ -17,9 +17,7 @@ interface RemoveUrlQueryParams {
  * @param {string} params.params - The current query string to parse
  * @param {string} params.key - The key to add or update in the query string
  * @param {string} params.value - The value to associate with the key
- *
  * @returns {string} A formatted URL string with the updated query parameters
- *
  * @example
  * ```ts
  * const result = formUrlQuery({
@@ -39,10 +37,7 @@ export const formUrlQuery = ({ params, key, value }: UrlQueryParams): string => 
   });
 };
 
-export const removeKeysFromUrlQuery = ({
-  params,
-  keysToRemove,
-}: RemoveUrlQueryParams): string => {
+export const removeKeysFromUrlQuery = ({ params, keysToRemove }: RemoveUrlQueryParams): string => {
   const queryString = qs.parse(params);
   keysToRemove.forEach((key) => {
     delete queryString[key];
