@@ -1,14 +1,20 @@
-import { model, models, Schema, Document } from "mongoose";
+import { model, models, Schema, Types } from "mongoose";
 
-export interface IAnswer extends Document {
-  // Define tus campos aquí
-  // ejemplo: name: string;
+export interface IAnswer {
+  author: Types.ObjectId;
+  question: Types.ObjectId;
+  content: string;
+  upvotes: number;
+  downvotes: number;
 }
 
 const AnswerSchema = new Schema<IAnswer>(
   {
-    // Define la estructura de tu esquema aquí
-    // ejemplo: name: { type: String, required: true }
+    author: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    question: { type: Schema.Types.ObjectId, ref: "Question", required: true },
+    content: { type: String, required: true },
+    upvotes: { type: Number, default: 0 },
+    downvotes: { type: Number, default: 0 },
   },
   { timestamps: true }
 );
