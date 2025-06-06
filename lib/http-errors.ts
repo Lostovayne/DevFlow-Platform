@@ -17,6 +17,9 @@ export class ValidationError extends RequestError {
     this.errors = fieldErrors;
   }
   static formatFieldErrors(errors: Record<string, string[]>): string {
+    if (!errors || Object.keys(errors).length === 0) {
+      return "Validation failed";
+    }
     const formattedMessages = Object.entries(errors).map(([field, messages]) => {
       const fieldName = field.charAt(0).toUpperCase() + field.slice(1);
 
