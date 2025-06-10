@@ -26,6 +26,15 @@ export async function POST(request: NextRequest) {
     if (!validateData.success) {
       throw new ValidationError(validateData.error.flatten().fieldErrors);
     }
+    const { email, username } = validateData.data;
+
+    const existingUser = await User.findOne({ email });
+    const existingUsername = await User.findOne({ username });
+    if (existingUser) throw new Error("User already exists");
+    if (existingUsername) throw new Error("Username already exists");
+
+    const newUser = await User.create(validateData.data);
+    return NextResponse.json({ success: true, data: newUser }, { status: 201 });
   } catch (error) {
     return handleError(error, "api") as APIErrorResponse;
   }
