@@ -7,17 +7,15 @@ import { APIErrorResponse } from "@/types/global";
 import { NextRequest, NextResponse } from "next/server";
 
 // GET /api/users/[id]
-export async function GET(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function GET(_: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
   if (!id) throw new Error("User ID is required");
 
   try {
     await dbConnect();
-
-    const user = User.findById(id);
-    if (!user) throw new NotFoundError("User not found");
-
-    return NextResponse.json({ success: true, data: user }, { status: 200 });
+    const userFound = await User.findById(id);
+    if (!userFound) throw new NotFoundError("User not found");
+    return NextResponse.json({ success: true, data: userFound }, { status: 200 });
   } catch (error) {
     return handleError(error, "api") as APIErrorResponse;
   }

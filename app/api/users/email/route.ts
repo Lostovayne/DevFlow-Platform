@@ -16,15 +16,7 @@ export async function POST(request: Request) {
     const user = await User.findOne({ email });
     if (!user) throw new NotFoundError("User not found");
 
-    return NextResponse.json(
-      {
-        success: true,
-        data: user,
-      },
-      {
-        status: 200,
-      }
-    );
+    return NextResponse.json({ success: true, data: user }, { status: 200 });
   } catch (error) {
     return handleError(error, "api") as APIErrorResponse;
   }
