@@ -13,6 +13,14 @@ function isError(err: unknown): err is Error {
   return err instanceof Error;
 }
 
+/**
+ * Handles fetch requests with configurable timeout and error handling.
+ *
+ * @template T - The type of the data expected in the response.
+ * @param {string} url - The URL to send the fetch request to.
+ * @param {FetchOptions} [options={}] - The fetch options, including headers and timeout.
+ * @returns {Promise<ActionResponse<T>>} - A promise that resolves to an ActionResponse containing the data or error.
+ */
 export async function fetchHandler<T>(url: string, options: FetchOptions = {}): Promise<ActionResponse<T>> {
   const { timeout = 5000, headers: customHeaders = {}, ...restOptions } = options;
   const controller = new AbortController(); // abort controller for timeout
