@@ -1,28 +1,14 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import {
-  DefaultValues,
-  FieldValues,
-  Path,
-  SubmitHandler,
-  useForm,
-} from "react-hook-form";
+import { DefaultValues, FieldValues, Path, SubmitHandler, useForm } from "react-hook-form";
 import { z, ZodType } from "zod";
 
 import { Button } from "@/components/ui/button";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import Link from "next/link";
 import ROUTES from "@/constants/routes";
+import Link from "next/link";
 
 interface AuthFormProps<T extends FieldValues> {
   schema: ZodType<T>;
@@ -31,12 +17,7 @@ interface AuthFormProps<T extends FieldValues> {
   formType: "SIGN_IN" | "SIGN_UP";
 }
 
-const AuthForm = <T extends FieldValues>({
-  schema,
-  defaultValues,
-  onSubmit,
-  formType,
-}: AuthFormProps<T>) => {
+const AuthForm = <T extends FieldValues>({ schema, defaultValues, onSubmit, formType }: AuthFormProps<T>) => {
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
     defaultValues: defaultValues as DefaultValues<T>,
@@ -59,9 +40,7 @@ const AuthForm = <T extends FieldValues>({
             render={({ field }) => (
               <FormItem className="flex w-full flex-col gap-2.5">
                 <FormLabel className="paragraph-medium text-dark400_light700">
-                  {field.name === "email"
-                    ? "Email"
-                    : field.name.charAt(0).toUpperCase() + field.name.slice(1)}
+                  {field.name === "email" ? "Email" : field.name.charAt(0).toUpperCase() + field.name.slice(1)}
                 </FormLabel>
                 <FormControl>
                   <Input
@@ -90,20 +69,14 @@ const AuthForm = <T extends FieldValues>({
         {formType === "SIGN_IN" ? (
           <p>
             Don&apos;t have an account?{" "}
-            <Link
-              href={ROUTES.SIGN_UP}
-              className="paragraph-semibold primary-text-gradient"
-            >
+            <Link href={ROUTES.SIGN_UP} className="paragraph-semibold primary-text-gradient">
               Sign up
             </Link>
           </p>
         ) : (
           <p>
             Already have an account?{" "}
-            <Link
-              href={ROUTES.SIGN_IN}
-              className="paragraph-semibold primary-text-gradient"
-            >
+            <Link href={ROUTES.SIGN_IN} className="paragraph-semibold primary-text-gradient">
               Sign in
             </Link>
           </p>
